@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
+    <div id="container">
+
+    </div>
+
+    <script type="text/javascript">
+    var apiKey = "2OFRYxUYBmo81pSfHQf7sRWZrHLq6NPe"
+    var userInput = "cinnamon roll" //we can set this equal to .val of the input box 
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userInput + "&api_key=" + apiKey + "&limit=1&rating=G"
+    var div = $("#container")
+
+    
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        var giph = response.data[0].images.fixed_height.url
+        var image = $("<img>").attr("src", giph)
+        div.append(image)
+});
+
+
+    </script>
+</body>
+</html>
