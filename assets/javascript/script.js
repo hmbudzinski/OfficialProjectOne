@@ -23,6 +23,8 @@ $(document).ready(function () {
 
 
 // below works as a search
+// pushing up to the group repo to show off
+
 // function searchFood(foodSearch) {
 //   var finalURL = queryURL + foodSearch + apiID + apiKEY;
 //   console.log(finalURL);
