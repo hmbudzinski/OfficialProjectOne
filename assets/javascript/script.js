@@ -6,19 +6,24 @@ var apiID = "&app_id=2790841b";
 var apiKEY = "&app_key=f439766755de77a40d2e25c9776f23a1";
 
 //variable for user input 
-var userSearch = $("#food-input").val();
+var userSearch = $("#search-term").val();
 
-$(document).ready(function () {
-  var finalURL = queryURL + userSearch + apiID + apiKEY;
-  console.log("searchTest website: " + finalURL);
+$("#searchButton").on("click", function(){
+  console.log($("#search-term").val());
+  
+  $(document).ready(function() {
+    // console.log("searchTest website: " + finalURL);
+    var finalURL = queryURL + userSearch + apiID + apiKEY;
+    
+    $.ajax({
+      url: finalURL,
+      method: "GET"
+    }).then(function (response) {
 
-  $.ajax({
-    url: finalURL,
-    method: "GET"
-  }).then(function (response) {
-    // console.log("ajax response" + (JSON.stringify(response)));
-    console.log(response.hits[0].recipe.shareAs);
-
+      console.log("ajax response" + (JSON.stringify(response)));
+      console.log(response.hits[0].recipe.shareAs);
+    
+    });
   });
 });
 

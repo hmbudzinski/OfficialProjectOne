@@ -1,0 +1,38 @@
+body {
+    background-image: url('img/bg01.jpg');
+    background-size: cover;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.jumbotron {
+  padding: 5% 10% 5% 10%;
+  margin-bottom: 2rem;
+  margin-top: 15%;
+  background-color: rgba(255, 176, 255, 0.5);
+  border-radius: 10px;
+}
+
+button {
+    font-size: 18pt;
+font-family: 'Tomorrow', sans-serif;
+}
+.extra-padding {
+    padding: 50px 50px 50px 50px;
+}
+
+.center {
+    text-align: center;
+}
+
+#search-term {
+    width: 80%;
+}
