@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|Tomorrow&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Dessert Search!</title>
 </head>
+
 <body>
-    <!-- A basic skeleton for the html goes here so we'll have some divs and some other divs and some
-    inpuit fields and some buttons and stuff like that woohoo! -->
+    <div class="container jumbotron center">
+        <div class="container">
+            <span>
+                <h1>Find Your Craving</h1>
+            </span>
+            <div class="row extra-padding center">
+
+                <div class="twelve columns">
+                    <input type="text" placeholder="Search for a dessert!" id="search-term"> <button
+                        type="submit">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="assets/frontScript.js"></script>
 </body>
+
 </html>
