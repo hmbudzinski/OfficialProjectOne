@@ -78,7 +78,7 @@ $("#search-button").on("click", function(event) {
 	list.push(searchTerm);
 	
 	for(var i = 0; i <list.length; i++){
-		$("#localStorage").append($("<br>"));
+		$("#stored").append($("<br>"));
 		//creating a button and setting the user input value to button
 		//replaces all dashes with spaces
 		userSearched = $("<button>").text(list[i]);
@@ -88,7 +88,7 @@ $("#search-button").on("click", function(event) {
 		userSearched.addClass("ul");
 		//string replace function, to replace all spaces with dashes
 		userSearched.attr("id", list[i]);
-		$("#localStorage").append(userSearched);
+		$("#stored").append(userSearched);
 	}
 
 	//need to use what Jody grabs from the recipe to store to local storage
