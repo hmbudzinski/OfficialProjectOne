@@ -34,7 +34,7 @@ input[type="text"] {
 
 button {
     font-size: 18pt;
-font-family: 'Tomorrow', sans-serif;
+    font-family: 'Tomorrow', sans-serif;
 }
 .extra-padding {
     padding: 50px 50px 50px 50px;
@@ -52,7 +52,12 @@ font-family: 'Tomorrow', sans-serif;
     width: 80%;
 }
 
+
 .column,
 .columns {
     padding: 20px
+
+.ul{
+    background-color: beige;
+    width: 20%;
 }

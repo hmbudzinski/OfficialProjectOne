@@ -6,20 +6,54 @@ var apiID = "&app_id=2790841b";
 var apiKEY = "&app_key=f439766755de77a40d2e25c9776f23a1";
 
 
-$(document).ready(function () {
-  var searchTest = "q=chocolate";
-  var finalURL = queryURL + searchTest + apiID + apiKEY;
-  console.log("searchTest website: " + finalURL);
+//localstorage for searches
+//on click, set user input to local storage and set text of each button to user search
+$("#searchButton").on("click touch", function(){
+  
+  localStorage.setItem($("#search-term").val().trim(), $("#search-term").val().trim());
+  console.log($("#search-term").val().trim());
+  
+  var userSearched = $("<button>").text($("#search-term").val());
+  userSearched.addClass("ul");
+  
+  var list = $("<ul>");
+  list.append(userSearched);
 
-  $.ajax({
-    url: finalURL,
-    method: "GET"
-  }).then(function (response) {
-    // console.log("ajax response" + (JSON.stringify(response)));
-    console.log(response.hits[0].recipe.shareAs);
+  $("body").append(list);
+  $("#search-term").val("");
 
-  });
-});
+  clickNewButtons();
+
+  function clickNewButtons(){
+    userSearched.on("click", function(){
+    console.log("click");
+    // var main = queryURL + localStorage.getItem(userSearched);
+    // console.log(main);
+    })
+  }
+
+})
+
+
+// function searchSaved(){
+//   userSearched.on("click touch", function(){
+//     console.log(this);
+//   })
+// }
+// $(document).ready(function () {
+//   var searchTest = "q=chocolate";
+//   var finalURL = queryURL + searchTest + apiID + apiKEY;
+//   console.log("searchTest website: " + finalURL);
+
+//   $.ajax({
+//     url: finalURL,
+//     method: "GET"
+//   }).then(function (response) {
+//     // console.log("ajax response" + (JSON.stringify(response)));
+//     console.log(response.hits[0].recipe.shareAs);
+
+//   });
+// });
 
 
 // below works as a search
