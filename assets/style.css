@@ -23,7 +23,7 @@ h6 {
 
 button {
     font-size: 18pt;
-font-family: 'Tomorrow', sans-serif;
+    font-family: 'Tomorrow', sans-serif;
 }
 .extra-padding {
     padding: 50px 50px 50px 50px;
@@ -35,4 +35,9 @@ font-family: 'Tomorrow', sans-serif;
 
 #search-term {
     width: 80%;
+}
+
+.ul{
+    background-color: beige;
+    width: 20%;
 }
