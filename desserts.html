@@ -5,64 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dessert_style.css">
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- 
-    <div id="giphcontainer">
     
-    </div>
-
     <div id="joke">
-        <button class="btn btn-primary mb-2 mt-2" id="jokeButton">Click me for a fun food joke!</button>
-    </div>
-    <div id="trivia">
-        <button class="btn btn-primary" id="triviaButton">Click me for some food trivia!</button>
+        <button class="btn btn-primary mb-2 mt-2" id="jokeButton">Don't forget to laugh today:</button>
     </div>
 
-    <script type="text/javascript">
-    var apiKey = "2OFRYxUYBmo81pSfHQf7sRWZrHLq6NPe"
-    var userInput = "cinnamon roll" //we can set this equal to .val of the input box 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userInput + "&api_key=" + apiKey + "&limit=1&rating=G"
-    var div = $("#giphcontainer")
-
-    
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response) {
-        var giph = response.data[0].images.fixed_height.url
-        var image = $("<img>").attr("src", giph)
-        div.append(image)     
-});
-
-var url = "https://api.spoonacular.com/food/jokes/random?&apiKey=349d5f926732476ab8ac52e9787cedc9"
-var urlTrivia = "https://api.spoonacular.com/food/trivia/random?&apiKey=349d5f926732476ab8ac52e9787cedc9"
-
-$("#jokeButton").on("click", function(){
-    $.ajax ({
-        url: url,
-        method: "GET"
-    }).then(function(response){
-        console.log(response.text)
-        var jokeBox = $("<div>")
-        jokeBox.text(response.text)
-        $("#joke").append(jokeBox)        
-    })
-})
-$("#triviaButton").on("click", function(){
-    $.ajax ({
-        url: urlTrivia,
-        method: "GET"
-    }).then(function(response){
-        console.log(response)
-        var triviaBox = $("<div>")
-        triviaBox.text(response.text)
-        $("#trivia").append(triviaBox)
-    })
-})
-    </script>
+    <script src="dessert.js"></script>
 </body>
 </html>

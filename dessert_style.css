@@ -5,10 +5,7 @@ img {
     width: 50%;
 }
 
-#joke {
-    margin-left: 10px;
-}
-
-#trivia {
-    margin-right: 10px;
+.jokes {
+    font-size: 32px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
