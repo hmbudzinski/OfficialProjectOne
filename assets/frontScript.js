@@ -27,7 +27,7 @@ $("#search-button").on("click touch", function (event) {
 
     divIds = ["recipe-info", "stored", "joke"]
     for (var i = 0; i < divIds.length; i++) {
-        var textArr = ["<span><h4>Recipe Title</h4></span><span>[img goes here]</span><span><h4>Recipe Title</h4></span><span>[img goes here]</span><span><h4>Recipe Title</h4></span><span>[img goes here]</span>", "<span><h4>Local Storage</h4></span><span id='localStorage'></span>", "<span><h5>Don't Forget to Laugh!</h5></span>"]
+        var textArr = ["<span><h4>Recipe Title</h4></span><span>[img goes here]</span><span><h4>Recipe Title</h4></span><span>[img goes here]</span><span><h4>Recipe Title</h4></span><span>[img goes here]</span>", "<span><h4>Local Storage</h4></span><span></span>", "<span><h5>Don't Forget to Laugh!</h5></span>"]
         var newCol = $("<div class='six columns trans-bg'>");
         newCol.attr("id", divIds[i])
         newRow.append(newCol);
