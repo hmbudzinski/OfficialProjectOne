@@ -59,7 +59,7 @@ function searchRecipe (searchButton) {
     
   });
 
-
+}
 
 /////
 // function calls
