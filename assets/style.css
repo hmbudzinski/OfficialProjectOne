@@ -13,12 +13,23 @@ h6 {
     font-family: 'Open Sans', sans-serif;
 }
 
+input[type="text"] {
+    height: 50px;
+    padding: 20px;
+    font-size: 18pt;
+    text-align: center;
+}
+
 .jumbotron {
-  padding: 5% 10% 5% 10%;
+  padding: 5% 5% 5% 5%;
   margin-bottom: 2rem;
   margin-top: 15%;
-  background-color: rgba(255, 176, 255, 0.5);
-  border-radius: 10px;
+
+}
+
+.trans-bg {
+    background-color: rgba(255, 176, 255, 0.5);
+    border-radius: 10px;
 }
 
 button {
@@ -29,6 +40,10 @@ button {
     padding: 50px 50px 50px 50px;
 }
 
+.top-margin20 {
+    margin-top: 20px;
+}
+
 .center {
     text-align: center;
 }
@@ -36,6 +51,11 @@ button {
 #search-term {
     width: 80%;
 }
+
+
+.column,
+.columns {
+    padding: 20px
 
 .ul{
     background-color: beige;
