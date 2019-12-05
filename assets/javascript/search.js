@@ -29,26 +29,35 @@ function searchRecipe (searchButton) {
   }).then(function (response) {
     // hide the animated gif
 
-    // go through the json object and grab three of the recipes, images and titles
-    // title
-    // response.hits[i].recipe.label
-    // image
-    // response.hits[i].recipe.image
-    // url
-    // response.hits[i].recipe.shareAs
+    // empty the div that results print to, using .empty();
+    $("#recipe-info").empty();
+    
+    for (var i = 0; i < response.hits.length; i++) {
+      // go through the json object and grab three of the recipes, images and titles
+      // title
+      var title = response.hits[i].recipe.label;
+      console.log(title);
+      // image
+      var img = $("<img>");
+      var imgSrc = response.hits[i].recipe.image;
+      console.log("Image source" + imgSrc);
+      img.attr("src", imgSrc);
+      // url
+      var shareUrl = response.hits[i].recipe.shareAs;
+      console.log(shareUrl);
 
-    console.log(response.hits[0].recipe.label);
-    console.log(response.hits[1].recipe.label);
-    console.log(response.hits[2].recipe.label);
+      //append to recipe div
+      $("#recipe-info").append(title + img + shareUrl + "<br>");
+     
+    }
 
     //create objects for each of the three hits? 
-    //append these objects to the three recipe boxes?
 
     //grab the health labels for 
      
-  })};
+  });
 
-
+}
 
 /////
 // function calls
@@ -58,7 +67,6 @@ function searchRecipe (searchButton) {
 /////
 //events
 /////
-
 $("#searchButton").on("click", function(){
   
   //calling search recipe function
