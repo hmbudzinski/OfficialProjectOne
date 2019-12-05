@@ -34,10 +34,14 @@ input[type="text"] {
 
 button {
     font-size: 18pt;
-    font-family: 'Tomorrow', sans-serif;
+font-family: 'Tomorrow', sans-serif;
 }
 .extra-padding {
-    padding: 50px 50px 50px 50px;
+    padding: 50px;
+}
+
+.top-margin20 {
+    margin-top: 20px;
 }
 
 .top-margin20 {
@@ -52,12 +56,22 @@ button {
     width: 80%;
 }
 
-
 .column,
 .columns {
     padding: 20px
+}
+
+@media only screen and (max-width: 425px) {
+    input[type="text"] {
+        font-size: 12pt;
+    }
+}
 
 /* .ul{
     background-color: beige;
     width: 20%;
+
 } */
+
+} /* what is this for? */
+
