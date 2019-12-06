@@ -36,23 +36,43 @@ function searchRecipe(searchTerm) {
 		// title image and url will be dynamically created and added
 		// to #recipe-info 12/5 - jdr
 		for (var i = 0; i < response.hits.length; i++) {
+			console.log(response)
 			// go through the json object and grab three of the recipes, images and titles
 			// title
+			var recipeTitle = $("<h5>");
 			var title = response.hits[i].recipe.label;
-			console.log("title " + i + " " + title);
-			// image
-			// var img = $("<img>");
+			recipeTitle.text(title);
+			$("#recipe-info").append(recipeTitle)
+			
+			//image
+			var img = $("<img>");
 			var imgSrc = response.hits[i].recipe.image;
-			console.log("Image source " + i + " " + imgSrc);
-			// img.attr("src", imgSrc);
+			img.attr("src", imgSrc);
+			$("#recipe-info").append(img)
+			
+			
+
 			// url
+			var urlButton = $("<button>")
+			urlButton.addClass("urlButton")
+			var buttonLink = $("<a>")
+			buttonLink.appendTo(urlButton)
 			var shareUrl = response.hits[i].recipe.shareAs;
+<<<<<<< Updated upstream
 			console.log("Share URL " + i + " " + shareUrl);
 
 			// //append to recipe div
 			// $("#recipe-info").append(title + img + shareUrl + "<br>");
+=======
+			buttonLink.attr("href", shareUrl)
+			buttonLink.attr('target','_blank');
+			buttonLink.text("Click here for recipe")
+			$("#recipe-info").append(urlButton)
+			
+>>>>>>> Stashed changes
 		}
 
+		
 		//create objects for each of the three hits?
 
 		//grab the health labels for
@@ -70,7 +90,11 @@ function searchRecipe(searchTerm) {
 //modified on click to show as event 12/5 8:27am - jdr
 $("#searchButton").on("click", function(event) {
 	event.preventDefault();
+<<<<<<< Updated upstream
 
+=======
+	
+>>>>>>> Stashed changes
 	// moved searchTerm from global to inside of event 12/5 jdr
 	var searchTerm = $("#search-term").val();
 	console.log(searchTerm);

@@ -10,6 +10,8 @@
 console.log(searchbox)
 
 $("#search-button").on("click touch", function (event) {
+    $("#recipe-info").empty(); //These were not working for me in the search.js file so I added them here for now BG
+    $("#joke").empty();
     var searchbox = $("#searchbox");
 
     searchbox.animate({ height: "100px", margin: "0 0 20px 0", position: "absolute", top: "20px", padding: "0px" })
