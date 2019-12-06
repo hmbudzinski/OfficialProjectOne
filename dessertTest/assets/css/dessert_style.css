@@ -1,0 +1,11 @@
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.jokes {
+    font-size: 32px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
