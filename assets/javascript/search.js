@@ -22,8 +22,12 @@ function searchRecipe(searchTerm) {
 	// empty the div that results print to, using .empty();
 	$("#recipe-info").empty();
 
+	//URI encode to change spaces into %20
+	searchThis = encodeURIComponent(searchTerm);
+	console.log("Search this: " + searchThis);
+
 	//create search url and console out
-	var finalUrl = urlStart + searchTerm + additionalKeys + idAndKey;
+	var finalUrl = urlStart + searchThis + additionalKeys + idAndKey;
 	console.log(finalUrl);
 
 	//ajax call the url
@@ -49,9 +53,6 @@ function searchRecipe(searchTerm) {
 			// url
 			var shareUrl = response.hits[i].recipe.shareAs;
 			console.log("Share URL " + i + " " + shareUrl);
-
-			// //append to recipe div
-			$("#recipe-info").append(title + img + shareUrl + "<br>");
 		}
 
 		//create objects for each of the three hits?
@@ -73,17 +74,19 @@ $("#search-button").on("click", function(event) {
 	event.preventDefault();
 	$("#recipe-info").empty();
 	// moved searchTerm from global to inside of event 12/5 jdr
-	var searchTerm = $("#search-term").val();
+	var searchTerm = $("#search-term")
+		.val()
+		.trim();
 	//appending buttons to new unordered list
 	list.push(searchTerm);
-	
-	for(var i = 0; i <list.length; i++){
+
+	for (var i = 0; i < list.length; i++) {
 		$("#stored").append($("<br>"));
 		//creating a button and setting the user input value to button
 		//replaces all dashes with spaces
 		userSearched = $("<button>").text(list[i]);
 		console.log(userSearched);
-		
+
 		//adding class to new buttons
 		userSearched.addClass("ul");
 		//string replace function, to replace all spaces with dashes
