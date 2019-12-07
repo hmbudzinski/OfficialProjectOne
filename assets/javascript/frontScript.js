@@ -16,7 +16,7 @@ $("#search-button").on("click touch", function (event) {
     var searchbox = $("#searchbox");
 
 
-    searchbox.animate({ height: "100px", margin: "0 0 20px 0", position: "absolute", top: "20px", padding: "0px" })
+    searchbox.animate({ height: "100px", margin: "0 0 20px 0", position: "absolute", marginTop: "20px", padding: "10px 0 50px 0" })
     $("#shrink").animate({ fontSize: "22pt" });
     $("#shrink").addClass("afterShrink")
     $(".row").removeClass("extra-padding");
@@ -34,7 +34,7 @@ $("#search-button").on("click touch", function (event) {
     divIds = ["recipe-info", "stored", "joke"]
     for (var i = 0; i < divIds.length; i++) {
         // var textArr = ["<span><h4>Recipe Title</h4></span><span>[img goes here]</span><span><h4>Recipe Title</h4></span><span>[img goes here]</span><span><h4>Recipe Title</h4></span><span>[img goes here]</span>", "<span><h4>Local Storage</h4></span><span></span>", "<span><h5>Don't Forget to Laugh!</h5></span>"]
-        var textArr =[];
+        var textArr = [];
         var newCol = $("<div class='six columns trans-bg'>");
         newCol.attr("id", divIds[i])
         newRow.append(newCol);
@@ -44,26 +44,26 @@ $("#search-button").on("click touch", function (event) {
     getJoke();
 })
 
-$("#searchbox").keyup(function(event){
-    if(event.keyCode == 13){
+$("#searchbox").keyup(function (event) {
+    if (event.keyCode == 13) {
         $("#search-button").click();
     }
 });
 
-function getJoke (){
-// $("#joke").removeClass("six columns")
-// $("#joke").addClass("four columns offset-by-four top-margin20")
+function getJoke() {
+    // $("#joke").removeClass("six columns")
+    // $("#joke").addClass("four columns offset-by-four top-margin20")
 
 
-var url = "https://api.spoonacular.com/food/jokes/random?&apiKey=349d5f926732476ab8ac52e9787cedc9"
-$.ajax({
-    url: url,
-    method: "GET"
-}).then(function (response) {
-    console.log(response.text)
-    var jokeBox = $("<div>")
-    jokeBox.addClass("jokes")
-    jokeBox.text(response.text)
-    $("#joke").append(jokeBox)
-})
+    var url = "https://api.spoonacular.com/food/jokes/random?&apiKey=349d5f926732476ab8ac52e9787cedc9"
+    $.ajax({
+        url: url,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response.text)
+        var jokeBox = $("<div>")
+        jokeBox.addClass("jokes")
+        jokeBox.text(response.text)
+        $("#joke").append(jokeBox)
+    })
 }
