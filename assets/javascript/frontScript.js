@@ -6,20 +6,23 @@
 
 // then manipulate the DOM to display the recipe and the corresponding gif
 
-
 console.log(searchbox)
 
 $("#search-button").on("click touch", function (event) {
     $("#recipe-info").remove();
     $("#stored").remove();
     $("#joke").remove();
+
     var searchbox = $("#searchbox");
+
 
     searchbox.animate({ height: "100px", margin: "0 0 20px 0", position: "absolute", top: "20px", padding: "0px" })
     $("#shrink").animate({ fontSize: "22pt" });
+    $("#shrink").addClass("afterShrink")
     $(".row").removeClass("extra-padding");
     $("#search-term").animate({ height: "20px" });
     $("#search-button").animate({ fontSize: "12pt" });
+    $("#search-button").removeClass("searchCenter")
     var newContainer = $("<div class='container'>");
 
     newContainer.attr("id", "results");
@@ -41,9 +44,15 @@ $("#search-button").on("click touch", function (event) {
     getJoke();
 })
 
+$("#searchbox").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#search-button").click();
+    }
+});
+
 function getJoke (){
-$("#joke").removeClass("six columns")
-$("#joke").addClass("four columns offset-by-four top-margin20")
+// $("#joke").removeClass("six columns")
+// $("#joke").addClass("four columns offset-by-four top-margin20")
 
 
 var url = "https://api.spoonacular.com/food/jokes/random?&apiKey=349d5f926732476ab8ac52e9787cedc9"
