@@ -57,8 +57,23 @@ function searchRecipe(searchTerm) {
 		$("#search-term").attr("placeholder", "Search for a real word dummy")
 
 	} else{
-		$("#search-term").attr("placeholder", "Search for a dessert!");
-		list.push(searchTerm);
+		$("#search-term").attr("placeholder", "Search for a Dessert!");
+		
+		var containsTerm = false;
+
+		if (list != null) {
+		  $(list).each(function(x) {
+			if (list[x] === searchTerm) {
+			  containsTerm = true;
+			}
+		  });
+		}
+
+		//push search term to the list array
+		
+		if (containsTerm === false) {
+		  list.push(searchTerm);
+		}
 	}
 	sideButtons();
 
@@ -94,6 +109,10 @@ function sideButtons() {
 		console.log("localStorage" + searchTerm);
 		searchRecipe(searchTerm);
 	});
+
+	var searchedTitle = $("<h5>");
+	searchedTitle.text("Your Delicious Searches");
+	$("#stored").prepend(searchedTitle);
 }
 
 /////
