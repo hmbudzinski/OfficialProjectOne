@@ -201,9 +201,20 @@ $("#search-button").on("click", function(event) {
 		.val()
 		.trim();
 
-	//push search term to the list array
-	list.push(searchTerm);
+	var containsTerm = false;
 
+	if (list != null) {
+		$(list).each(function(x) {
+			if (list[x] === searchTerm) {
+				containsTerm = true;
+			}
+		});
+	}
+
+	//push search term to the list array
+	if (containsTerm === false) {
+		list.push(searchTerm);
+	}
 	// //appending buttons to new unordered list
 	// for (var i = 0; i < list.length; i++) {
 	// 	$("#stored").append($("<br>"));
