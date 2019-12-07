@@ -19,11 +19,13 @@ var list = [];
 function searchRecipe(searchTerm) {
 	//show  the animated gif that is currently hidden
 
-	// empty the div that results print to, using .empty();
-	$("#recipe-info").empty();
+
+	//URI encode to change spaces into %20
+	searchThis = encodeURIComponent(searchTerm);
+	console.log("Search this: " + searchThis);
 
 	//create search url and console out
-	var finalUrl = urlStart + searchTerm + additionalKeys + idAndKey;
+	var finalUrl = urlStart + searchThis + additionalKeys + idAndKey;
 	console.log(finalUrl);
 
 	//ajax call the url
@@ -39,19 +41,27 @@ function searchRecipe(searchTerm) {
 		for (var i = 0; i < response.hits.length; i++) {
 			// go through the json object and grab three of the recipes, images and titles
 			// title
+			var recipeTitle = $("<h5>");
 			var title = response.hits[i].recipe.label;
-			console.log("title " + i + " " + title);
+			recipeTitle.text(title);
+			$("#recipe-info").append(recipeTitle)
+			
 			// image
-			// var img = $("<img>");
+			var img = $("<img>");
 			var imgSrc = response.hits[i].recipe.image;
-			console.log("Image source " + i + " " + imgSrc);
-			// img.attr("src", imgSrc);
+			img.attr("src", imgSrc);
+			$("#recipe-info").append(img)
+			
 			// url
+			var urlButton = $("<button>")
+			urlButton.addClass("urlButton")
+			var buttonLink = $("<a>")
+			buttonLink.appendTo(urlButton)
 			var shareUrl = response.hits[i].recipe.shareAs;
-			console.log("Share URL " + i + " " + shareUrl);
-
-			// //append to recipe div
-			$("#recipe-info").append(title + img + shareUrl + "<br>");
+			buttonLink.attr("href", shareUrl)
+			buttonLink.attr('target','_blank');
+			buttonLink.text("Click here for recipe")
+			$("#recipe-info").append(urlButton)
 		}
 
 		//create objects for each of the three hits?
@@ -71,19 +81,21 @@ function searchRecipe(searchTerm) {
 //modified on click to show as event 12/5 8:27am - jdr
 $("#search-button").on("click", function(event) {
 	event.preventDefault();
-	$("#recipe-info").empty();
+	
 	// moved searchTerm from global to inside of event 12/5 jdr
-	var searchTerm = $("#search-term").val();
+	var searchTerm = $("#search-term")
+		.val()
+		.trim();
 	//appending buttons to new unordered list
 	list.push(searchTerm);
-	
-	for(var i = 0; i <list.length; i++){
+
+	for (var i = 0; i < list.length; i++) {
 		$("#stored").append($("<br>"));
 		//creating a button and setting the user input value to button
 		//replaces all dashes with spaces
 		userSearched = $("<button>").text(list[i]);
 		console.log(userSearched);
-		
+
 		//adding class to new buttons
 		userSearched.addClass("ul");
 		//string replace function, to replace all spaces with dashes
