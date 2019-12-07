@@ -101,6 +101,107 @@ function sideButtons() {
 /////
 // sideButtons();
 
+//array for autocomplete... feel free to add additional search terms
+$(function() {
+	var dessertSuggestions = [
+		"cupcake",
+		"cake",
+		"candy",
+		"pastry",
+		"sweet",
+		"cookie",
+		"ice cream",
+		"pie",
+		"pudding",
+		"tart",
+		"croissant",
+		"sweet roll",
+		"muffin",
+		"lollipop",
+		"caramels",
+		"lemon drops",
+		"toffee",
+		"chocolate",
+		"jujubes",
+		"jelly",
+		"jelly beans",
+		"marshmallow",
+		"marzipan",
+		"halvah",
+		"gummies",
+		"gummi bears",
+		"tootsie roll",
+		"liquorice",
+		"chupa chups",
+		"bonbon",
+		"dessert",
+		"sugar plum",
+		"drag\xe9e",
+		"apple pie",
+		"biscuit",
+		"wafer",
+		"chocolate bar",
+		"candy canes",
+		"gingerbread",
+		"donut",
+		"cheesecake",
+		"oat cake",
+		"carrot cake",
+		"fruitcake",
+		"souffl\xe9",
+		"tiramisu",
+		"chocolate cake",
+		"brownie",
+		"macaroon",
+		"icing",
+		"powder",
+		"topping",
+		"jelly-o",
+		"cake",
+		"sesame snaps",
+		"danish",
+		"bear claw",
+		"cotton candy",
+		"caramel corn",
+		"apple",
+		"pear",
+		"kiwi",
+		"banana",
+		"blackberry",
+		"strawberry",
+		"blueberry",
+		"lingonberry",
+		"gooseberry",
+		"boysenberry",
+		"cranberry",
+		"goji",
+		"acai",
+		"currant",
+		"mulberry",
+		"watermelon",
+		"coconut",
+		"lime",
+		"mango",
+		"orange",
+		"basil",
+		"tropical fruit",
+		"key lime",
+		"almond",
+		"rhubarb",
+		"pecan",
+		"plum",
+		"peach",
+		"spiced",
+		"granola",
+		"basalmic",
+		"nutella",
+		"vanilla bean"
+	];
+	$("#search-term").autocomplete({
+		source: dessertSuggestions
+	});
+});
+
 /////
 //events
 /////
@@ -113,10 +214,27 @@ $("#search-button").on("click", function(event) {
 		.val()
 		.trim();
 
+	var containsTerm = false;
+
+	if (list != null) {
+		$(list).each(function(x) {
+			if (list[x] === searchTerm) {
+				containsTerm = true;
+			}
+		});
+	}
+
+	//push search term to the list array
+	if (containsTerm === false) {
+		list.push(searchTerm);
+	}
+
+
 	searchRecipe(searchTerm);
 	// console.log(searchRecipe(searchTerm));
 	//push search term to the list array
 	// list.push(searchTerm);
+
 
 	localStorage.setItem("key word", JSON.stringify(searchTerm));
 	//clearing the search bar
