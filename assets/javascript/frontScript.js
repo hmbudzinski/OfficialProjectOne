@@ -10,6 +10,7 @@
 console.log(searchbox)
 
 $("#search-button").on("click touch", function (event) {
+    $("#recipe-info").empty();
     var searchbox = $("#searchbox");
 
     searchbox.animate({ height: "100px", margin: "0 0 20px 0", position: "absolute", top: "20px", padding: "0px" })
