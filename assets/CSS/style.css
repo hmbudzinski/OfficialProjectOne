@@ -1,5 +1,10 @@
+
+/* //////////////////// */
+/* Cindy's CSS Space */
+/* //////////////////// */
+
 body {
-    background-image: url('img/bg01.jpg');
+    background-image: url('../img/dessertbg.jpg');
     background-size: cover;
     font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -34,10 +39,14 @@ input[type="text"] {
 
 button {
     font-size: 18pt;
-    font-family: 'Tomorrow', sans-serif;
+font-family: 'Tomorrow', sans-serif;
 }
 .extra-padding {
-    padding: 50px 50px 50px 50px;
+    padding: 50px;
+}
+
+.top-margin20 {
+    margin-top: 20px;
 }
 
 .top-margin20 {
@@ -52,12 +61,42 @@ button {
     width: 80%;
 }
 
-
 .column,
 .columns {
     padding: 20px
+}
+
+@media only screen and (max-width: 425px) {
+    input[type="text"] {
+        font-size: 12pt;
+    }
+}
 
 /* .ul{
     background-color: beige;
     width: 20%;
+
 } */
+
+} /* what is this for? */
+
+
+
+/* //////////////////// */
+/* Bri's CSS Space  */
+/* //////////////////// */
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#joke {
+    margin-left: 10px;
+}
+
+#trivia {
+    margin-right: 10px;
+}
