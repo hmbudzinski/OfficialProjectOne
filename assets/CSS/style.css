@@ -5,7 +5,6 @@
 
 body {
     background-image: url('../img/dessertbg.jpg');
-    background-size: cover;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
@@ -79,7 +78,6 @@ font-family: 'Tomorrow', sans-serif;
 
 } */
 
-} /* what is this for? */
 
 
 
@@ -104,4 +102,14 @@ a {
     font-size: 12pt;
     color: black;
     text-decoration: none;
+}
+@media only screen and (max-width: 890px) {
+    img {
+        width: 200px;
+    }
+}
+@media only screen and (max-width: 890px) {
+    a {
+        font-size:8pt;
+    }
 }
