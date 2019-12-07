@@ -86,17 +86,6 @@ font-family: 'Tomorrow', sans-serif;
 /* Bri's CSS Space  */
 /* //////////////////// */
 
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
-#joke {
-    margin-left: 10px;
-}
-
-#trivia {
-    margin-right: 10px;
+.urlButton {
+    font-size: 12pt;
 }
