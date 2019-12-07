@@ -62,7 +62,22 @@ function searchRecipe(searchTerm) {
 
 	} else{
 		$("#search-term").attr("placeholder", "Search for a Dessert!");
-		list.push(searchTerm);
+		
+		var containsTerm = false;
+
+		if (list != null) {
+		  $(list).each(function(x) {
+			if (list[x] === searchTerm) {
+			  containsTerm = true;
+			}
+		  });
+		}
+
+		//push search term to the list array
+		
+		if (containsTerm === false) {
+		  list.push(searchTerm);
+		}
 	}
 	sideButtons();
 
@@ -71,7 +86,6 @@ function searchRecipe(searchTerm) {
 }
 
 function sideButtons() {
-	console.log("making buttons");
 	//appending buttons to new unordered list
 	$("#stored").empty();
 
@@ -81,9 +95,9 @@ function sideButtons() {
 		//creating a button and setting the user input value to button
 		//replaces all dashes with spaces
 		userSearched = $("<button>");
-		console.log("is it a button: " + userSearched);
+		// console.log("is it a button: " + userSearched);
 		userSearched.text(list[i]);
-		console.log(userSearched);
+		// console.log(userSearched);
 		//adding class to new buttons
 		userSearched.addClass("prevSearch");
 		//string replace function, to replace all spaces with dashes
@@ -94,7 +108,7 @@ function sideButtons() {
 	// $("#search-term").val("");
 	$(".prevSearch").on("click", function(event) {
 		event.preventDefault();
-		console.log("click");
+		// console.log("click");
 		var searchTerm = $(this).data("id");
 		console.log("localStorage" + searchTerm);
 		searchRecipe(searchTerm);
