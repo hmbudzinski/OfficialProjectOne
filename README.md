@@ -1,11 +1,13 @@
 # Group Project 1: Dessert Search!
 ### Bri, Hayley, Jody, and Cindy
 
-[Dessert Search App](https://hmbudzinski.github.io/OfficalProjectOne)
+[Dessert Search App](https://hmbudzinski.github.io/OfficialProjectOne/)
 
 ## User Story
 As a dessert lover
+
 I can search for dessert keywords
+
 So that I can satisfy my craving
 
 

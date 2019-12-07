@@ -52,10 +52,22 @@ function searchRecipe(searchTerm) {
 			buttonLink.text("Click here for recipe");
 			$("#recipe-info").append(urlButton);
 		}
-	});
+
+	if(response.hits.length === 0){
+		$("#search-term").attr("placeholder", "Search for a real word dummy")
+
+	} else{
+		$("#search-term").attr("placeholder", "Search for a dessert!");
+		list.push(searchTerm);
+	}
+	sideButtons();
+
+});
+
 }
 
 function sideButtons() {
+	console.log("making buttons");
 	//appending buttons to new unordered list
 	$("#stored").empty();
 
@@ -87,6 +99,7 @@ function sideButtons() {
 /////
 // function calls
 /////
+// sideButtons();
 
 //array for autocomplete... feel free to add additional search terms
 $(function() {
@@ -215,29 +228,18 @@ $("#search-button").on("click", function(event) {
 	if (containsTerm === false) {
 		list.push(searchTerm);
 	}
-	// //appending buttons to new unordered list
-	// for (var i = 0; i < list.length; i++) {
-	// 	$("#stored").append($("<br>"));
-	// 	//creating a button and setting the user input value to button
-	// 	//replaces all dashes with spaces
-	// 	userSearched = $("<button>").text(list[i]);
-	// 	console.log(userSearched);
 
-	// 	//adding class to new buttons
-	// 	// userSearched.addClass("ul");
-	// 	//string replace function, to replace all spaces with dashes
-	// 	userSearched.attr("id", list[i]);
-	// 	$("#stored").append(userSearched);
-	// }
 
-	//need to use what Jody grabs from the recipe to store to local storage
-	//put three recipies in an array when they are grabbed, and then store that array with the search term
+	searchRecipe(searchTerm);
+	// console.log(searchRecipe(searchTerm));
+	//push search term to the list array
+	// list.push(searchTerm);
+
+
 	localStorage.setItem("key word", JSON.stringify(searchTerm));
-	//need to loop through what API has returned and create array of returns to store in local storage
 	//clearing the search bar
 	$("#search-term").val("");
 
-	sideButtons();
 	//passed search term to function 12/5 826am - jdr
-	searchRecipe(searchTerm);
+
 });
