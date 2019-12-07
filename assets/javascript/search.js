@@ -62,7 +62,22 @@ function searchRecipe(searchTerm) {
 
 	} else{
 		$("#search-term").attr("placeholder", "Search for a Dessert!");
-		list.push(searchTerm);
+		
+		var containsTerm = false;
+
+		if (list != null) {
+		  $(list).each(function(x) {
+			if (list[x] === searchTerm) {
+			  containsTerm = true;
+			}
+		  });
+		}
+
+		//push search term to the list array
+		
+		if (containsTerm === false) {
+		  list.push(searchTerm);
+		}
 	}
 	sideButtons();
 
