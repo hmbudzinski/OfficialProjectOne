@@ -44,6 +44,7 @@ $("#search-button").on("click touch", function (event) {
     getJoke();
 })
 
+// This allows the user to press enter instead of clicking search
 $("#searchbox").keyup(function(event){
     if(event.keyCode == 13){
         $("#search-button").click();

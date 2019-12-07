@@ -87,7 +87,9 @@ function sideButtons() {
 /////
 // function calls
 /////
+var firstTime = true
 
+// $("#search-button").on("click", _.debounce(()=>{searchRecipe(searchTerm)}, 10000));
 /////
 //events
 /////
@@ -127,5 +129,12 @@ $("#search-button").on("click", function(event) {
 
 	sideButtons();
 	//passed search term to function 12/5 826am - jdr
+	// if (firstTime === true){ 
+	// 	searchRecipe(searchTerm);
+	// 	firstTime = false
+	// } else {
+	// 	_.debounce(()=>{searchRecipe(searchTerm)}, 3000);
+	// }
 	searchRecipe(searchTerm);
 });
+
