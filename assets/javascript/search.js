@@ -54,6 +54,7 @@ function searchRecipe(searchTerm) {
 		}
 
 	if(response.hits.length === 0){
+
 		$("#search-term").attr("placeholder", "Search for a Real Word Dummy!")
 		$("#recipe-info").hide();
 		$("#stored").hide();
