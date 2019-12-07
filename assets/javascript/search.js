@@ -18,16 +18,12 @@ var list = [];
 
 function searchRecipe(searchTerm) {
 	//show  the animated gif that is currently hidden
-
-
 	//URI encode to change spaces into %20
 	searchThis = encodeURIComponent(searchTerm);
 	console.log("Search this: " + searchThis);
-
 	//create search url and console out
 	var finalUrl = urlStart + searchThis + additionalKeys + idAndKey;
-	console.log(finalUrl);
-
+	// console.log(finalUrl);
 	//ajax call the url
 	$.ajax({
 		url: finalUrl,
@@ -60,14 +56,28 @@ function searchRecipe(searchTerm) {
 			var shareUrl = response.hits[i].recipe.shareAs;
 			buttonLink.attr("href", shareUrl)
 			buttonLink.attr('target','_blank');
-			buttonLink.text("Click here for recipe")
+			buttonLink.text("Click Here for Recipe")
 			$("#recipe-info").append(urlButton)
 		}
-
-		//create objects for each of the three hits?
-
 		//grab the health labels for
 	});
+}
+
+function sideButtons(searchTerm){
+	//appending buttons to new unordered list
+	list.push(searchTerm);
+	
+	for (var i = 0; i < list.length; i++) {
+		$("#stored").append($("<br>"));
+		//creating a button and setting the user input value to button
+		//replaces all dashes with spaces
+		userSearched = $("<button>").text(list[i]);
+		
+		$("#stored").append(userSearched);
+		//string replace function, to replace all spaces with dashes
+		userSearched.attr("id", list[i]);
+	}
+	$("#search-term").val("");
 }
 
 /////
@@ -82,34 +92,23 @@ function searchRecipe(searchTerm) {
 $("#search-button").on("click", function(event) {
 	event.preventDefault();
 	
-	// moved searchTerm from global to inside of event 12/5 jdr
 	var searchTerm = $("#search-term")
-		.val()
-		.trim();
-	//appending buttons to new unordered list
-	list.push(searchTerm);
-
-	for (var i = 0; i < list.length; i++) {
-		$("#stored").append($("<br>"));
-		//creating a button and setting the user input value to button
-		//replaces all dashes with spaces
-		userSearched = $("<button>").text(list[i]);
-		console.log(userSearched);
-
-		//adding class to new buttons
-		userSearched.addClass("ul");
-		//string replace function, to replace all spaces with dashes
-		userSearched.attr("id", list[i]);
-		$("#stored").append(userSearched);
-	}
-
-	//need to use what Jody grabs from the recipe to store to local storage
-	//put three recipies in an array when they are grabbed, and then store that array with the search term
-	// localStorage.setItem(searchTerm, //returned array of recipies);
-	//need to loop through what API has returned and create array of returns to store in local storage
-	//clearing the search bar
-	$("#search-term").val("");
-
+	.val()
+	.trim();
+	
 	//passed search term to function 12/5 826am - jdr
 	searchRecipe(searchTerm);
+	sideButtons(searchTerm);
+	
+});
+
+$(userSearched).on("click", function(event){
+
+	var searchTerm = $("#search-term")
+	.val()
+	.trim();
+
+	console.log("click");
+	searchRecipe(searchTerm);
+	// sideButtons(searchTerm);
 });
