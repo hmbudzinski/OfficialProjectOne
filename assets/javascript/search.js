@@ -118,7 +118,6 @@ function sideButtons() {
 	searchedTitle.text("Your Delicious Searches");
 	$("#stored").prepend(searchedTitle);
 
-}
 
 /////
 // function calls
