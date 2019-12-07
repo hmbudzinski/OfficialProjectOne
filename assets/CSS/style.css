@@ -69,7 +69,12 @@ font-family: 'Tomorrow', sans-serif;
 @media only screen and (max-width: 425px) {
     input[type="text"] {
         font-size: 12pt;
+        margin-bottom: 3px;
     }
+
+    /* .jumbotron {
+        padding-bottom: 5%;
+    } */
 }
 
 /* .ul{
