@@ -23,22 +23,29 @@ input[type="text"] {
 	text-align: center;
 }
 
+input[type="checkbox"] {
+    size: 50px;
+}
+
 .jumbotron {
-	padding: 5% 5% 5% 5%;
-	margin-bottom: 2rem;
-	margin-top: 15%;
+  padding: 5% 5% 5% 5%;
+  margin-bottom: 2rem;
+  margin-top: 5%;
 }
 
 .trans-bg {
-    background-color: rgba(255, 176, 255, 0.8);
+    background-color: rgba(202, 236, 9, 0.8);
     border-radius: 10px;
+    box-shadow: 0 0 5px #000;
+
 }
 
 button {
-	font-size: 18pt;
-	font-family: "Tomorrow", sans-serif;
-	border: 1px solid black;
+    font-size: 18pt;
+    font-family: 'Tomorrow', sans-serif;
+    border: 1px solid black;
 }
+
 .extra-padding {
 	padding: 50px;
 }
@@ -59,9 +66,122 @@ button {
 	width: 80%;
 }
 
+
+
 .column,
 .columns {
 	padding: 20px;
+}
+
+#recipe-info {
+    overflow: auto;
+    height: 500px;
+}
+
+#recipe-box {
+    margin-bottom: 20px;
+}
+
+#recipe-box,
+#recipe-info,
+#stored,
+#joke {
+    display: none;
+}
+
+/* scollbar styling */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+/* checkbox styling */
+
+/* Customize the label (the container) */
+.check {
+  /* float: left; */
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  width: auto;
+  margin-bottom: 12px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 16pt;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.check:hover input ~ .checkmark {
+  background-color: #cccccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.check input:checked ~ .checkmark {
+  background-color: #a621f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.check .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 @media only screen and (max-width: 425px) {
@@ -69,8 +189,23 @@ button {
 		font-size: 12pt;
 	}
     input[type="text"] {
-        font-size: 12pt;
+        font-size: 10pt;
         margin-bottom: 3px;
+    }
+
+    .check {
+        font-size: 11pt;
+        margin-left: 3px;
+        padding-left: 25px;
+    }
+
+    .checkmark {
+        height: 20px;
+        width: 20px;
+    }
+    
+    .extra-padding {
+        padding: 0;
     }
 
     /* .jumbotron {

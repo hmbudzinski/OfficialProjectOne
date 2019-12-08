@@ -9,37 +9,46 @@
 console.log(searchbox)
 
 $("#search-button").on("click touch", function (event) {
-    $("#recipe-info").remove();
-    $("#stored").remove();
-    $("#joke").remove();
+    event.preventDefault();
+    $("#recipe-info").empty();
+    $("#stored").empty();
+    $("#joke").empty();
 
-    var searchbox = $("#searchbox");
 
 
-    searchbox.animate({ height: "100px", margin: "0 0 20px 0", position: "absolute", marginTop: "20px", padding: "10px 0 50px 0" })
-    $("#shrink").animate({ fontSize: "22pt" });
-    $("#shrink").addClass("afterShrink")
+
+    $("#searchbox").animate({ height: "150px", margin: "0 0 20px 0", marginTop: "20px", padding: "10px 0 50px 0" });
+    $("#shrink-text").animate({ fontSize: "22pt" });
     $(".row").removeClass("extra-padding");
     $("#search-term").animate({ height: "20px" });
     $("#search-button").animate({ fontSize: "12pt" });
-    $("#search-button").removeClass("searchCenter")
-    var newContainer = $("<div class='container'>");
+    $("#search-button").removeClass("searchCenter");
 
-    newContainer.attr("id", "results");
-    newContainer.attr("class", "container center");
-    newContainer.insertAfter(searchbox);
-    var newRow = $("<div class='row'>");
-    newContainer.append(newRow);
+    $("#recipe-box").fadeIn(1000, "swing");
+    $("#recipe-info").fadeIn(1000, "swing");
+    $("#stored").fadeIn(1000, "swing");
+    $("#joke").fadeIn(1000, "swing");
+    // var newContainer = $("<div class='container'>");
 
-    divIds = ["recipe-info", "stored", "joke"]
-    for (var i = 0; i < divIds.length; i++) {
-        // var textArr = ["<span><h4>Recipe Title</h4></span><span>[img goes here]</span><span><h4>Recipe Title</h4></span><span>[img goes here]</span><span><h4>Recipe Title</h4></span><span>[img goes here]</span>", "<span><h4>Local Storage</h4></span><span></span>", "<span><h5>Don't Forget to Laugh!</h5></span>"]
-        var textArr = [];
-        var newCol = $("<div class='six columns trans-bg'>");
-        newCol.attr("id", divIds[i])
-        newRow.append(newCol);
-        newCol.html(textArr[i]);
-    }
+    // newContainer.attr("id", "results");
+    // newContainer.attr("class", "container center");
+    // newContainer.insertAfter(searchbox);
+    // var newRow = $("<div class='row'>");
+    // newContainer.append(newRow);
+
+    // divIds = ["recipe-info", "stored", "joke"]
+    // for (var i = 0; i < divIds.length; i++) {
+    //     // var textArr = ["<span><h4>Recipe Title</h4></span><span>[img goes here]</span><span><h4>Recipe Title</h4></span><span>[img goes here]</span><span><h4>Recipe Title</h4></span><span>[img goes here]</span>", "<span><h4>Local Storage</h4></span><span></span>", "<span><h5>Don't Forget to Laugh!</h5></span>"]
+    //     // var textArr = [];
+    //     var newCol = $("<div class='trans-bg'>");
+    //     newCol.attr("id", divIds[i])
+    //     newRow.append(newCol);
+    //     // newCol.html(textArr[i]);
+    // }
+
+    // $("#recipe-info").addClass("eight columns");
+    // $("#stored").addClass("four columns")
+    // $("#joke").addClass("four columns")
 
     getJoke();
 })
