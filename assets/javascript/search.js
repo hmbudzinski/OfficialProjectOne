@@ -118,12 +118,13 @@ function sideButtons() {
 	var searchedTitle = $("<h5>");
 	searchedTitle.text("Your Delicious Searches");
 	$("#stored").prepend(searchedTitle);
-
+// just one spicey boi right here
+}
 
 /////
 // function calls
 /////
-// sideButtons();
+
 
 //array for autocomplete... feel free to add additional search terms
 $(function() {
