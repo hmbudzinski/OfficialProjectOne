@@ -3,8 +3,8 @@
 /* //////////////////// */
 
 body {
+    font-family: 'Raleway', sans-serif;
 	background-image: url("../img/dessertbg.jpg");
-	font-family: "Open Sans Condensed", sans-serif;
 }
 
 h1,
@@ -13,7 +13,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Open Sans", sans-serif;
+    font-family: 'Pacifico', cursive;
 }
 
 input[type="text"] {
@@ -34,7 +34,8 @@ input[type="checkbox"] {
 }
 
 .trans-bg {
-    background-color: rgba(202, 236, 9, 0.8);
+    background-color: pink;
+    opacity: 0.9;
     border-radius: 10px;
     box-shadow: 0 0 5px #000;
 
@@ -42,8 +43,8 @@ input[type="checkbox"] {
 
 button {
     font-size: 18pt;
-    font-family: 'Tomorrow', sans-serif;
-    border: 1px solid black;
+    font-family: 'Raleway', sans-serif;
+    border: 1px solid gray;
 }
 
 .extra-padding {
@@ -65,8 +66,6 @@ button {
 #search-term {
 	width: 80%;
 }
-
-
 
 .column,
 .columns {
@@ -214,12 +213,6 @@ button {
 
 }
 
-/* .ul{
-    background-color: beige;
-    width: 20%;
-
-} */
-
 
 /* //////////////////// */
 /* Bri's CSS Space  */
@@ -304,4 +297,15 @@ ul {
     a {
         font-size:8pt;
     }
+}
+
+/* //////////////////// */
+/* Hayley's Extra CSS Space  */
+/* //////////////////// */
+
+#clearButton{
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    border: none;
 }

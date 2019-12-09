@@ -21,15 +21,13 @@ $("input:checkbox").change(function () {
 	ischecked = $(this).is(":checked")
 	value = $(this).val();
 	console.log("checked", ischecked, value)
-})
+});
 
 
 
 /////
 // reusable functions
 /////
-
-
 
 function searchRecipe(searchTerm) {
 	//URI encode to change spaces into %20
@@ -124,11 +122,13 @@ function searchRecipe(searchTerm) {
 
 		if (response.hits.length === 0) {
 
-			$("#search-term").attr("placeholder", "Search for a Real Word Dummy!")
-			$("#recipe-info").hide();
-			$("#stored").hide();
-			$("#joke").hide();
-			// $("<img>").attr("src", )
+
+		$("#search-term").attr("placeholder", "Search for a Real Word Dummy!")
+		$("#recipe-info").hide();
+		$("#recipe-box").hide();
+		$("#stored").hide();
+		$("#joke").hide();
+
 
 		} else {
 			$("#search-term").attr("placeholder", "Search for a Dessert!");
@@ -175,7 +175,6 @@ function sideButtons() {
 		$("#stored").append(userSearched);
 	}
 
-	// $("#search-term").val("");
 	$(".prevSearch").on("click", function (event) {
 		event.preventDefault();
 		// console.log("click");
@@ -187,13 +186,22 @@ function sideButtons() {
 	var searchedTitle = $("<h5>");
 	searchedTitle.text("Your Delicious Searches");
 	$("#stored").prepend(searchedTitle);
-// just one spicey boi right here
+	
+	var clearButton = $("<button>");
+	clearButton.attr("id", "clearButton");
+	clearButton.append($('<i class="fas fa-times"></i>'));
+	$("#stored").append(clearButton);
+
+	$("#clearButton").on("click", function (event) {
+		console.log("click");
+		clearSearch();
+	});
 }
 
-/////
-// function calls
-/////
-
+function clearSearch(){
+	$(".prevSearch").remove();
+	list = [];
+}
 
 //array for autocomplete... feel free to add additional search terms
 $(function () {
@@ -302,14 +310,12 @@ $(function () {
 
 $("#search-button").on("click", function (event) {
 	event.preventDefault();
-
+	
 	// moved searchTerm from global to inside of event 12/5 jdr
-	var searchTerm = $("#search-term")
-		.val()
-		.trim();
-
+	var searchTerm = $("#search-term").val().trim();
+	
 	var containsTerm = false;
-
+	
 	if (list != null) {
 		$(list).each(function (x) {
 			if (list[x] === searchTerm) {
@@ -317,23 +323,23 @@ $("#search-button").on("click", function (event) {
 			}
 		});
 	}
-
+	
 	//push search term to the list array
 	if (containsTerm === false) {
 		list.push(searchTerm);
 	}
-
-
+	
 	searchRecipe(searchTerm);
 	// console.log(searchRecipe(searchTerm));
-	//push search term to the list array
-	// list.push(searchTerm);
-
-
+	
 	localStorage.setItem("key word", JSON.stringify(searchTerm));
 	//clearing the search bar
+	
 	$("#search-term").val("");
+
+
+});
 
 	//passed search term to function 12/5 826am - jdr
 
-})
+
