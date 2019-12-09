@@ -23,6 +23,8 @@ $("input:checkbox").change(function () {
 	console.log("checked", ischecked, value)
 });
 
+
+
 /////
 // reusable functions
 /////
@@ -41,23 +43,48 @@ function searchRecipe(searchTerm) {
 		console.log("checked is true", value)
 
 		finalUrl = urlStart + searchThis + additionalKeys + vegan + idAndKey
+
+		checkboxVal = [];
 	}
 
 	if (ischecked === true && value === "peanut-free") {
 		console.log("checked is true", value)
 
 		finalUrl = urlStart + searchThis + additionalKeys + peanutFree + idAndKey
+		checkboxVal = [];
 	}
 
 	if (ischecked === true && value === "tree-nut-free") {
 		console.log("checked is true", value)
 
 		finalUrl = urlStart + searchThis + additionalKeys + treeNutFree + idAndKey
+		checkboxVal = [];
 	}
 
-	// if (ischecked === true && value === "vegan" && value === "peanut-free") {
-	// 	finalUrl = urlStart + searchThis + additionalKeys + vegan + + idAndKey
-	// }
+	if (ischecked === true && checkboxVal === "vegan", "peanut-free") {
+		console.log("user checked vegan and peanut-free")
+		finalUrl = urlStart + searchThis + additionalKeys + vegan + peanutFree + idAndKey
+		checkboxVal = [];
+	}
+
+	if (ischecked === true && checkboxVal === "vegan", "tree-nut-free") {
+		console.log("user checked vegan and tree-nut-free")
+		finalUrl = urlStart + searchThis + additionalKeys + vegan + treeNutFree + idAndKey
+		checkboxVal = [];
+	}
+
+	if (ischecked === true && checkboxVal === "peanut-free", "tree-nut-free") {
+		console.log("user checked peanut-free and tree-nut-free")
+		finalUrl = urlStart + searchThis + additionalKeys + peanutFree + treeNutFree + idAndKey
+		checkboxVal = [];
+	}
+
+	if (ischecked === true && checkboxVal === "vegan", "peanut-free", "tree-nut-free") {
+		console.log("user checked vegan, peanut-free, and tree-nut-free")
+		finalUrl = urlStart + searchThis + additionalKeys + vegan + peanutFree + treeNutFree + idAndKey
+		checkboxVal = [];
+	}
+
 
 
 	console.log(finalUrl);
@@ -93,7 +120,8 @@ function searchRecipe(searchTerm) {
 			$("#recipe-info").append(urlButton);
 		}
 
-	if(response.hits.length === 0){
+		if (response.hits.length === 0) {
+
 
 		$("#search-term").attr("placeholder", "Search for a Real Word Dummy!")
 		$("#recipe-info").hide();
@@ -101,28 +129,29 @@ function searchRecipe(searchTerm) {
 		$("#stored").hide();
 		$("#joke").hide();
 
-	} else{
-		$("#search-term").attr("placeholder", "Search for a Dessert!");
-		
-		var containsTerm = false;
 
-		if (list != null) {
-		  $(list).each(function(x) {
-			if (list[x] === searchTerm) {
-			  containsTerm = true;
+		} else {
+			$("#search-term").attr("placeholder", "Search for a Dessert!");
+
+			var containsTerm = false;
+
+			if (list != null) {
+				$(list).each(function (x) {
+					if (list[x] === searchTerm) {
+						containsTerm = true;
+					}
+				});
 			}
-		  });
-		}
 
-		//push search term to the list array
-		
-		if (containsTerm === false) {
-		  list.push(searchTerm);
-		}
-	}
-	sideButtons();
+			//push search term to the list array
 
-});
+			if (containsTerm === false) {
+				list.push(searchTerm);
+			}
+		}
+		sideButtons();
+
+	});
 
 }
 
@@ -152,7 +181,7 @@ function sideButtons() {
 		var searchTerm = $(this).data("id");
 		console.log("localStorage" + searchTerm);
 		searchRecipe(searchTerm);
-	})
+	});
 
 	var searchedTitle = $("<h5>");
 	searchedTitle.text("Your Delicious Searches");
@@ -175,7 +204,7 @@ function clearSearch(){
 }
 
 //array for autocomplete... feel free to add additional search terms
-$(function() {
+$(function () {
 	var dessertSuggestions = [
 		"cupcake",
 		"cake",
@@ -288,7 +317,7 @@ $("#search-button").on("click", function (event) {
 	var containsTerm = false;
 	
 	if (list != null) {
-		$(list).each(function(x) {
+		$(list).each(function (x) {
 			if (list[x] === searchTerm) {
 				containsTerm = true;
 			}
@@ -308,4 +337,9 @@ $("#search-button").on("click", function (event) {
 	
 	$("#search-term").val("");
 
+
 });
+
+	//passed search term to function 12/5 826am - jdr
+
+

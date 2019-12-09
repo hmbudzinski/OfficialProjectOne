@@ -6,13 +6,21 @@
 
 // then manipulate the DOM to display the recipe and the corresponding gif
 
-console.log(searchbox)
+var checkboxVal = [];
 
 $("#search-button").on("click touch", function (event) {
     event.preventDefault();
     $("#recipe-info").empty();
     $("#stored").empty();
     $("#joke").empty();
+
+    // used for finding the value of multiple checkbox ticks for the search
+    $("input:checkbox:checked").each(function () {
+        val = $(this).val();
+        console.log("checkbox value? ", $(this).val())
+        checkboxVal.push(val)
+        console.log("checkboxVal array ", checkboxVal)
+    })
 
 
 
