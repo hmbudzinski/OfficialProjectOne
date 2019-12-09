@@ -66,5 +66,33 @@ $.ajax({
     jokeBox.addClass("jokes")
     jokeBox.text(response.text)
     $("#joke").append(jokeBox)
+    
+    getGiphys();
 })
+}
+
+var searchTerm = $("#search-term").val(); 
+
+
+function getGiphys(){
+
+    var apiKey = "2OFRYxUYBmo81pSfHQf7sRWZrHLq6NPe"
+    
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=" + apiKey + "&limit=1&rating=G"
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function(response) {
+    console.log(searchTerm)
+    console.log(response)
+    var giph = response.data[0].images.fixed_height.url
+    var giphBox = $("<div>")
+    // console.log("div creation ",giphBox);
+    var image = $("<img>").attr("src", giph) 
+    console.log("image and source ",image);
+    giphBox.append(image)
+    // console.log("giph box line " + giphBox)
+    $("#joke").append(giphbox)
+});
 }
