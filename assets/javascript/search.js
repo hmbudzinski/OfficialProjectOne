@@ -21,13 +21,13 @@ $("input:checkbox").change(function () {
 	ischecked = $(this).is(":checked")
 	value = $(this).val();
 	console.log("checked", ischecked, value)
-})
+});
+
+
 
 /////
 // reusable functions
 /////
-
-
 
 function searchRecipe(searchTerm) {
 	//URI encode to change spaces into %20
@@ -43,23 +43,48 @@ function searchRecipe(searchTerm) {
 		console.log("checked is true", value)
 
 		finalUrl = urlStart + searchThis + additionalKeys + vegan + idAndKey
+
+		checkboxVal = [];
 	}
 
 	if (ischecked === true && value === "peanut-free") {
 		console.log("checked is true", value)
 
 		finalUrl = urlStart + searchThis + additionalKeys + peanutFree + idAndKey
+		checkboxVal = [];
 	}
 
 	if (ischecked === true && value === "tree-nut-free") {
 		console.log("checked is true", value)
 
 		finalUrl = urlStart + searchThis + additionalKeys + treeNutFree + idAndKey
+		checkboxVal = [];
 	}
 
-	// if (ischecked === true && value === "vegan" && value === "peanut-free") {
-	// 	finalUrl = urlStart + searchThis + additionalKeys + vegan + + idAndKey
-	// }
+	if (ischecked === true && checkboxVal === "vegan", "peanut-free") {
+		console.log("user checked vegan and peanut-free")
+		finalUrl = urlStart + searchThis + additionalKeys + vegan + peanutFree + idAndKey
+		checkboxVal = [];
+	}
+
+	if (ischecked === true && checkboxVal === "vegan", "tree-nut-free") {
+		console.log("user checked vegan and tree-nut-free")
+		finalUrl = urlStart + searchThis + additionalKeys + vegan + treeNutFree + idAndKey
+		checkboxVal = [];
+	}
+
+	if (ischecked === true && checkboxVal === "peanut-free", "tree-nut-free") {
+		console.log("user checked peanut-free and tree-nut-free")
+		finalUrl = urlStart + searchThis + additionalKeys + peanutFree + treeNutFree + idAndKey
+		checkboxVal = [];
+	}
+
+	if (ischecked === true && checkboxVal === "vegan", "peanut-free", "tree-nut-free") {
+		console.log("user checked vegan, peanut-free, and tree-nut-free")
+		finalUrl = urlStart + searchThis + additionalKeys + vegan + peanutFree + treeNutFree + idAndKey
+		checkboxVal = [];
+	}
+
 
 
 	console.log(finalUrl);
@@ -95,36 +120,38 @@ function searchRecipe(searchTerm) {
 			$("#recipe-info").append(urlButton);
 		}
 
-	if(response.hits.length === 0){
+		if (response.hits.length === 0) {
+
 
 		$("#search-term").attr("placeholder", "Search for a Real Word Dummy!")
 		$("#recipe-info").hide();
+		$("#recipe-box").hide();
 		$("#stored").hide();
 		$("#joke").hide();
-		// $("<img>").attr("src", )
 
-	} else{
-		$("#search-term").attr("placeholder", "Search for a Dessert!");
-		
-		var containsTerm = false;
 
-		if (list != null) {
-		  $(list).each(function(x) {
-			if (list[x] === searchTerm) {
-			  containsTerm = true;
+		} else {
+			$("#search-term").attr("placeholder", "Search for a Dessert!");
+
+			var containsTerm = false;
+
+			if (list != null) {
+				$(list).each(function (x) {
+					if (list[x] === searchTerm) {
+						containsTerm = true;
+					}
+				});
 			}
-		  });
-		}
 
-		//push search term to the list array
-		
-		if (containsTerm === false) {
-		  list.push(searchTerm);
-		}
-	}
-	sideButtons();
+			//push search term to the list array
 
-});
+			if (containsTerm === false) {
+				list.push(searchTerm);
+			}
+		}
+		sideButtons();
+
+	});
 
 }
 
@@ -148,28 +175,36 @@ function sideButtons() {
 		$("#stored").append(userSearched);
 	}
 
-	// $("#search-term").val("");
 	$(".prevSearch").on("click", function (event) {
 		event.preventDefault();
 		// console.log("click");
 		var searchTerm = $(this).data("id");
 		console.log("localStorage" + searchTerm);
 		searchRecipe(searchTerm);
-	})
+	});
 
 	var searchedTitle = $("<h5>");
 	searchedTitle.text("Your Delicious Searches");
 	$("#stored").prepend(searchedTitle);
-// just one spicey boi right here
+	
+	var clearButton = $("<button>");
+	clearButton.attr("id", "clearButton");
+	clearButton.append($('<i class="fas fa-times"></i>'));
+	$("#stored").append(clearButton);
+
+	$("#clearButton").on("click", function (event) {
+		console.log("click");
+		clearSearch();
+	});
 }
 
-/////
-// function calls
-/////
-
+function clearSearch(){
+	$(".prevSearch").remove();
+	list = [];
+}
 
 //array for autocomplete... feel free to add additional search terms
-$(function() {
+$(function () {
 	var dessertSuggestions = [
 		"cupcake",
 		"cake",
@@ -275,38 +310,36 @@ $(function() {
 
 $("#search-button").on("click", function (event) {
 	event.preventDefault();
-
+	
 	// moved searchTerm from global to inside of event 12/5 jdr
-	var searchTerm = $("#search-term")
-		.val()
-		.trim();
-
+	var searchTerm = $("#search-term").val().trim();
+	
 	var containsTerm = false;
-
+	
 	if (list != null) {
-		$(list).each(function(x) {
+		$(list).each(function (x) {
 			if (list[x] === searchTerm) {
 				containsTerm = true;
 			}
 		});
 	}
-
+	
 	//push search term to the list array
 	if (containsTerm === false) {
 		list.push(searchTerm);
 	}
-
-
+	
 	searchRecipe(searchTerm);
 	// console.log(searchRecipe(searchTerm));
-	//push search term to the list array
-	// list.push(searchTerm);
-
-
+	
 	localStorage.setItem("key word", JSON.stringify(searchTerm));
 	//clearing the search bar
+	
 	$("#search-term").val("");
+
+
+});
 
 	//passed search term to function 12/5 826am - jdr
 
-});
+
