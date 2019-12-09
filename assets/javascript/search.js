@@ -163,10 +163,15 @@ function sideButtons() {
 	clearButton.append($('<i class="fas fa-times"></i>'));
 	$("#stored").append(clearButton);
 
+	$("#clearButton").on("click", function (event) {
+		console.log("click");
+		clearSearch();
+	});
 }
 
 function clearSearch(){
-	$("#stored").empty();
+	$(".prevSearch").remove();
+	list = [];
 }
 
 //array for autocomplete... feel free to add additional search terms
@@ -274,7 +279,6 @@ $(function() {
 //events
 /////
 
-
 $("#search-button").on("click", function (event) {
 	event.preventDefault();
 	
@@ -304,11 +308,4 @@ $("#search-button").on("click", function (event) {
 	
 	$("#search-term").val("");
 
-});
-
-
-$("#clearButton").on("click", function (event) {
-	event.preventDefault();
-	console.log("click");
-	// clearSearch();
 });
