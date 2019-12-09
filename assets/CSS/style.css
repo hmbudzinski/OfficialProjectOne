@@ -303,5 +303,14 @@ ul {
 @media only screen and (max-width: 890px) {
     a {
         font-size:8pt;
+        
     }
 }
+#joke {
+    position: relative;
+}
+.giphyImage {
+    position: absolute;
+    bottom: 0;
+}
+

@@ -51,6 +51,7 @@ $("#search-button").on("click touch", function (event) {
     // $("#joke").addClass("four columns")
 
     getJoke();
+    
 })
 
 $("#searchbox").keyup(function (event) {
@@ -69,10 +70,33 @@ function getJoke() {
         url: url,
         method: "GET"
     }).then(function (response) {
-        console.log(response.text)
+    
         var jokeBox = $("<div>")
         jokeBox.addClass("jokes")
         jokeBox.text(response.text)
         $("#joke").append(jokeBox)
+       
     })
+    var apiKey = "2OFRYxUYBmo81pSfHQf7sRWZrHLq6NPe"
+    var searchTerm = $("#search-term").val();
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=" + apiKey + "&limit=1&rating=G"
+  
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response)
+        console.log(searchTerm)
+        console.log(jokeBox)
+        var giph = response.data[0].images.fixed_height.url
+        console.log(giph)
+        var imageDiv = $("<div>")
+        var image = $("<img>").attr("src", giph)  
+        image.addClass("giphyImage")
+        console.log(imageDiv)
+        imageDiv.append(image)   
+        $(".jokes").append(imageDiv)
+    })
+
 }
