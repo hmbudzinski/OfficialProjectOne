@@ -36,47 +36,49 @@ function searchRecipe(searchTerm) {
 	var finalUrl = urlStart + searchThis + additionalKeys + idAndKey;
 
 	// if statements to detect which boxes are checked to alter the queryURL
-	if (ischecked === true && value === "vegan") {
+	if (checkboxVal[0] === "vegan") {
 		console.log("checked is true", value);
 
 		finalUrl = urlStart + searchThis + additionalKeys + vegan + idAndKey;
 		checkboxVal = [];
 	}
 
-	if (ischecked === true && value === "peanut-free") {
+	if (checkboxVal[0] === "peanut-free") {
 		console.log("checked is true", value);
 
 		finalUrl = urlStart + searchThis + additionalKeys + peanutFree + idAndKey;
 		checkboxVal = [];
 	}
 
-	if (ischecked === true && value === "tree-nut-free") {
+	if (checkboxVal[0] === "tree-nut-free") {
 		console.log("checked is true", value);
 
 		finalUrl = urlStart + searchThis + additionalKeys + treeNutFree + idAndKey;
 		checkboxVal = [];
 	}
 
-	if (ischecked === true && checkboxVal === "vegan", "peanut-free") {
+	if (checkboxVal[0] === "vegan" && checkboxVal[1] === "peanut-free" /*|| checkboxVal[0] === "peanut-free" && checkboxVal[1] === "vegan"*/) {
 		console.log("user checked vegan and peanut-free");
 		finalUrl = urlStart + searchThis + additionalKeys + vegan + peanutFree + idAndKey;
 		checkboxVal = [];
 	}
 
-	if (ischecked === true && checkboxVal === "vegan", "tree-nut-free") {
+	if (checkboxVal[0] === "vegan" && checkboxVal[1] === "tree-nut-free" /*|| checkboxVal[0] === "trea-nut-free" && checkboxVal[1] === "vegan"*/) {
 		console.log("user checked vegan and tree-nut-free");
 		finalUrl =
 			urlStart + searchThis + additionalKeys + vegan + treeNutFree + idAndKey;
 		checkboxVal = [];
 	}
 
-	if (ischecked === true && checkboxVal === "peanut-free", "tree-nut-free") {
+	if (checkboxVal[0] === "peanut-free" && checkboxVal[1] === "tree-nut-free" /*|| checkboxVal[0] === "tree-nut-free" && checkboxVal[1] === "peanut-free"*/) {
 		console.log("user checked peanut-free and tree-nut-free");
 		finalUrl = urlStart + searchThis + additionalKeys + peanutFree + treeNutFree + idAndKey;
 		checkboxVal = [];
 	}
 
-	if (ischecked === true && checkboxVal === "vegan", "peanut-free", "tree-nut-free") {
+	// if (checkboxVal[0] === "vegan" && checkboxVal[1] === "peanut-free" && checkboxVal[2] === "tree-nut-free" || checkboxVal[0] === "peanut-free" && checkboxVal[1] === "vegan" && checkboxVal[2] === "tree-nut-free" || checkboxVal[0] === "tree-nut-free" && checkboxVal[1] === "pea-nut-free" && checkboxVal[2] === "") {
+
+	if (checkboxVal === "peanut-free" && checkboxVal === "vegan" && checkboxVal === "tree-nut-free") {
 		console.log("user checked vegan, peanut-free, and tree-nut-free");
 		finalUrl = urlStart + searchThis + additionalKeys + vegan + peanutFree + treeNutFree + idAndKey;
 		checkboxVal = [];
