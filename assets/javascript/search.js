@@ -103,6 +103,7 @@ function searchRecipe(searchTerm) {
 			var img = $("<img>");
 			var imgSrc = response.hits[i].recipe.image;
 			img.attr("src", imgSrc);
+			img.addClass("recipeImg")
 			$("#recipe-info").append(img);
 
 			// url
