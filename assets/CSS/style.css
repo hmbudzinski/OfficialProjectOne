@@ -74,6 +74,7 @@ button {
 #recipe-info {
 	/* overflow: auto; */
 	/* height: 500px; */
+
 }
 
 #recipe-box {
@@ -84,6 +85,7 @@ button {
 #recipe-box,
 #recipe-info,
 #stored,
+
 #joke,
 #edamam-div,
 #edamam-badge {
@@ -214,6 +216,20 @@ button {
     } */
 }
 
+
+@media only screen and (max-width: 890px) {
+	img {
+		width: 200px;
+	}
+
+	.prevSearch {
+    font-size: 12pt; 
+    
+	a {
+		font-size: 8pt;
+	}
+}
+
 /* //////////////////// */
 /* Bri's CSS Space  */
 /* //////////////////// */
@@ -244,6 +260,17 @@ a {
 	font-size: 12pt;
 	color: black;
 	text-decoration: none;
+}
+
+/* //////////////////// */
+/* Hayley's Extra CSS Space  */
+/* //////////////////// */
+
+#clearButton {
+	position: absolute;
+	top: 10px;
+	right: 5px;
+	border: none;
 }
 
 /* //////////////////// */
@@ -297,7 +324,9 @@ ul {
 .ui-menu .ui-menu-item a.ui-state-active {
 	margin: -1px;
 }
+
 @media only screen and (max-width: 890px) {
+
 	img {
 		width: 200px;
 	}
@@ -305,8 +334,14 @@ ul {
 	.prevSearch {
 		font-size: 12pt;
 	}
-}
-@media only screen and (max-width: 890px) {
+
+    img {
+        width: 200px;
+    }
+    .prevSearch {
+      font-size:12pt;
+    }
+
 	a {
 		font-size: 8pt;
 	}
@@ -316,9 +351,11 @@ ul {
 /* Hayley's Extra CSS Space  */
 /* //////////////////// */
 
+
 #clearButton {
 	position: absolute;
 	top: 10px;
 	right: 5px;
 	border: none;
 }
+
