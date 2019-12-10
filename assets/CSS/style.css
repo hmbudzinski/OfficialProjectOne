@@ -245,7 +245,11 @@ button {
 		padding: 0px 0px 0px 0px;
 	}
 }
-
+@media only screen and (min-width: 891px) {
+	img {
+		width: 350px;
+	}
+}
 /* //////////////////// */
 /* Bri's CSS Space  */
 /* //////////////////// */
