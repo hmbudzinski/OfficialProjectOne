@@ -16,7 +16,7 @@ var ischecked = false;
 var value;
 
 // checking the checkbox's checked or unchecked status
-$("input:checkbox").change(function() {
+$("input:checkbox").change(function () {
 	ischecked = $(this).is(":checked");
 	value = $(this).val();
 	console.log("checked", ischecked, value);
@@ -40,7 +40,6 @@ function searchRecipe(searchTerm) {
 		console.log("checked is true", value);
 
 		finalUrl = urlStart + searchThis + additionalKeys + vegan + idAndKey;
-
 		checkboxVal = [];
 	}
 
@@ -58,46 +57,28 @@ function searchRecipe(searchTerm) {
 		checkboxVal = [];
 	}
 
-	if ((ischecked === true && checkboxVal === "vegan", "peanut-free")) {
+	if (ischecked === true && checkboxVal === "vegan", "peanut-free") {
 		console.log("user checked vegan and peanut-free");
-		finalUrl =
-			urlStart + searchThis + additionalKeys + vegan + peanutFree + idAndKey;
+		finalUrl = urlStart + searchThis + additionalKeys + vegan + peanutFree + idAndKey;
 		checkboxVal = [];
 	}
 
-	if ((ischecked === true && checkboxVal === "vegan", "tree-nut-free")) {
+	if (ischecked === true && checkboxVal === "vegan", "tree-nut-free") {
 		console.log("user checked vegan and tree-nut-free");
 		finalUrl =
 			urlStart + searchThis + additionalKeys + vegan + treeNutFree + idAndKey;
 		checkboxVal = [];
 	}
 
-	if ((ischecked === true && checkboxVal === "peanut-free", "tree-nut-free")) {
+	if (ischecked === true && checkboxVal === "peanut-free", "tree-nut-free") {
 		console.log("user checked peanut-free and tree-nut-free");
-		finalUrl =
-			urlStart +
-			searchThis +
-			additionalKeys +
-			peanutFree +
-			treeNutFree +
-			idAndKey;
+		finalUrl = urlStart + searchThis + additionalKeys + peanutFree + treeNutFree + idAndKey;
 		checkboxVal = [];
 	}
 
-	if (
-		(ischecked === true && checkboxVal === "vegan",
-		"peanut-free",
-		"tree-nut-free")
-	) {
+	if (ischecked === true && checkboxVal === "vegan", "peanut-free", "tree-nut-free") {
 		console.log("user checked vegan, peanut-free, and tree-nut-free");
-		finalUrl =
-			urlStart +
-			searchThis +
-			additionalKeys +
-			vegan +
-			peanutFree +
-			treeNutFree +
-			idAndKey;
+		finalUrl = urlStart + searchThis + additionalKeys + vegan + peanutFree + treeNutFree + idAndKey;
 		checkboxVal = [];
 	}
 
@@ -107,7 +88,7 @@ function searchRecipe(searchTerm) {
 	$.ajax({
 		url: finalUrl,
 		method: "GET"
-	}).then(function(response) {
+	}).then(function (response) {
 		for (var i = 0; i < response.hits.length; i++) {
 			// go through the json object and grab three of the recipes, images and titles
 			// title
@@ -146,7 +127,7 @@ function searchRecipe(searchTerm) {
 			var containsTerm = false;
 
 			if (list != null) {
-				$(list).each(function(x) {
+				$(list).each(function (x) {
 					if (list[x] === searchTerm) {
 						containsTerm = true;
 					}
@@ -183,7 +164,7 @@ function sideButtons() {
 		$("#stored").append(userSearched);
 	}
 
-	$(".prevSearch").on("click", function(event) {
+	$(".prevSearch").on("click", function (event) {
 		event.preventDefault();
 		// console.log("click");
 		var searchTerm = $(this).data("id");
@@ -200,7 +181,7 @@ function sideButtons() {
 	clearButton.append($('<i class="fa fa-times"></i>'));
 	$("#stored").append(clearButton);
 
-	$("#clearButton").on("click", function(event) {
+	$("#clearButton").on("click", function (event) {
 		console.log("click");
 		clearSearch();
 	});
@@ -213,7 +194,7 @@ function clearSearch() {
 
 //array for autocomplete... feel free to add additional search terms
 // updated some search terms 12/9 jdr
-$(function() {
+$(function () {
 	var dessertSuggestions = [
 		"cupcake",
 		"cake",
@@ -321,7 +302,7 @@ $(function() {
 //events
 /////
 
-$("#search-button").on("click", function(event) {
+$("#search-button").on("click", function (event) {
 	event.preventDefault();
 
 	// moved searchTerm from global to inside of event 12/5 jdr
@@ -332,7 +313,7 @@ $("#search-button").on("click", function(event) {
 	var containsTerm = false;
 
 	if (list != null) {
-		$(list).each(function(x) {
+		$(list).each(function (x) {
 			if (list[x] === searchTerm) {
 				containsTerm = true;
 			}
