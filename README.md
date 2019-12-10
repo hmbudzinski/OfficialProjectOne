@@ -30,13 +30,12 @@ real world problem using data from multiple server-side API requests.
 After the start of the project it quickly became apperant that each member of
 the team liked to have a clear idea of which step they should be working on
 next. Kanban, being built into GitHub, came in as a great tool for us. We worked
-together to break down the project into simple steps, and worked together to
-move the steps from our personal to-do lists into the "done" bucket.
+together to break down the project into simple steps, and moved the steps from our
+personal to-do lists into the "done" bucket.
 
 ### Two Server-Side APIs
 
-We chose to work with Edamam and Spoonacular for the first time, as well as
-bring in Giphy.
+We chose to work with Edamam and Spoonacular for the first time.
 
 Edamam provided us with a json object to manipulate that allowed us to display
 the recipe title, image, and link. With each user search we were able to limit
@@ -44,14 +43,15 @@ the search to three responses, as well as limit by vegan desserts, peanut free
 desserts, and tree nut free desserts.
 
 As happy as desserts make everyone, we knew we needed to bring more joy to the
-world. That's where Spoonacular's database of food related jokes came in. BRI DO
-YOU WANT TO TALK ABOUT THIS API SOME MORE?
-
-ONLY INCLUDE GIPHY IF WE END UP USING IT.
+world. That's where Spoonacular's Get A Random Food Joke came in. Caution: user 
+discretion is advised!
 
 ### CSS Framework: Skeleton
 
-CINDY CAN YOU WRITE UP A PARAGRAPH ABOUT SKELETON PLEASE
+The team loved working in Skeleton. Unlike Bootstrap, the documentation for
+Skeleton was easily digestable, and it's file is cleanly written and simple
+to look at and understand. We were still able to create a responsive and great
+layout, while giving us the space to explore our own design styles.
 
 ### New Third-Party API
 
@@ -65,21 +65,19 @@ Jquery UI we were able to add some really exciting features.
   accessible, and styled the drop down to fit with the rest of our page's
   styling
 
-- BRI WHAT DID YOU END UP ADDING FROM UI?
+- An effect called Shake was added to the div container for the jokes. Upon clicking 
+  it the div "shakes" and presents a new joke on the screen
 
-### Achieving Polished, Mobile First UI
-
-### Future Changes
+- Hide and Effect used to dynamically display divs on the page, and have them shift
+  up after the first search
 
 ## Attribution
 
-- Edamam Recipe generator powered by [Edamam](https://www.edamam.com/)
+- Edamam Recipe generator powered by [Edamam](https://www.edamam.com/).
 
-- Spoonacular CANT FIND ANY INFO ON HOW THEY WANT THEIR ATTRIBUTION TO BE, BUT
-  THEY DO MAKE IT CLEAR THAT WE WERE SUPPOSED TO HIDE OUR KEY IF WE PUT THIS ON
-  GITHUB, IF ITS STOLEN AND OVERUSED IT"S ON US
+- Spoonacular found at [Spoonacular](https://spoonacular.com/food-api).
 
-- Skeleton UNABLE TO FIND ATTRIBUTION INSTRUCTIONS
+- Skeleton found at [Skeleton](http://getskeleton.com/).
 
 - Font Awesome Cookie Bite icon used with permission from
   [Font Awesome](https://fontawesome.com/), under Attribution 4.0 International
@@ -88,7 +86,3 @@ Jquery UI we were able to add some really exciting features.
 - Jquery UI Third Party API found at [Jquery UI](https://jqueryui.com/).
 
 - Cupcake Ipsum Ipsum generator found at [Cupcake Ipsum](cupcakeipsum.com/).
-
-## License
-
-NOT SURE HOW WE LICENSE THIS SINCE IT IS USING A LOT OF 3RD PARTY APIs
