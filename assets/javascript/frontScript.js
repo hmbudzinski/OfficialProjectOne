@@ -13,6 +13,7 @@ $("#search-button").on("click touch", function (event) {
     $("#recipe-info").empty();
     $("#stored").empty();
     $("#joke").empty();
+    $("#giphy").empty();
 
     // used for finding the value of multiple checkbox ticks for the search
     $("input:checkbox:checked").each(function () {
@@ -36,6 +37,7 @@ $("#search-button").on("click touch", function (event) {
     $("#recipe-info").fadeIn(1000, "swing");
     $("#stored").fadeIn(1000, "swing");
     $("#joke").fadeIn(1000, "swing");
+    $("#giphy").fadeIn(1000, "swing");
     // var newContainer = $("<div class='container'>");
 
     // newContainer.attr("id", "results");
@@ -84,3 +86,13 @@ function getJoke() {
         $("#joke").append(jokeBox)
     })
 }
+
+// Jquery UI 
+$("#joke").click(function() {
+    $( "#joke" ).effect( "shake" );
+    $("#joke").empty();
+    getJoke ();
+  });
+
+
+  
