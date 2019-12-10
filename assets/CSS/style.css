@@ -72,18 +72,23 @@ button {
 }
 
 #recipe-info {
-	overflow: auto;
-	height: 500px;
+	/* overflow: auto; */
+	/* height: 500px; */
+
 }
 
 #recipe-box {
 	margin-bottom: 20px;
 }
 
+/* setting up edamam badge in the same way as these divs 12/9 jdr */
 #recipe-box,
 #recipe-info,
 #stored,
-#joke {
+
+#joke,
+#edamam-div,
+#edamam-badge {
 	display: none;
 }
 
@@ -211,6 +216,7 @@ button {
     } */
 }
 
+
 @media only screen and (max-width: 890px) {
 	img {
 		width: 200px;
@@ -237,10 +243,19 @@ button {
 	font-size: 16pt;
 }
 
+#edamam-div {
+	padding: 0;
+}
+
+#edamam-badge {
+	width: auto;
+}
+
 .searchCenter {
 	display: block;
 	margin: auto;
 }
+
 a {
 	font-size: 12pt;
 	color: black;
@@ -311,27 +326,36 @@ ul {
 }
 
 @media only screen and (max-width: 890px) {
+
+	img {
+		width: 200px;
+	}
+
+	.prevSearch {
+		font-size: 12pt;
+	}
+
     img {
         width: 200px;
     }
     .prevSearch {
       font-size:12pt;
     }
-}
-@media only screen and (max-width: 890px) {
-    a {
-        font-size:8pt;
-    }
+
+	a {
+		font-size: 8pt;
+	}
 }
 
 /* //////////////////// */
 /* Hayley's Extra CSS Space  */
 /* //////////////////// */
 
-#clearButton{
-    position: absolute;
-    top: 10px;
-    right: 2px;
-    border: none;
+
+#clearButton {
+	position: absolute;
+	top: 10px;
+	right: 5px;
+	border: none;
 }
 
