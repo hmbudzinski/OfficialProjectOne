@@ -83,11 +83,10 @@ button {
 	padding: 20px;
 }
 
-#recipe-info {
+/* #recipe-info {
 	/* overflow: auto; */
 	/* height: 500px; */
 
-}
 
 #recipe-box {
 	margin-bottom: 20px;
@@ -226,30 +225,6 @@ button {
 }
 
 
-@media only screen and (max-width: 890px) {
-	img {
-		width: 200px;
-	}
-
-	.prevSearch {
-    font-size: 12pt; 
-	}
-
-	a {
-		font-size: 8pt;
-	}
-
-	#checkmarks {
-		height:auto;
-		margin: 10px 0px;
-		padding: 0px 0px 0px 0px;
-	}
-}
-@media only screen and (min-width: 891px) {
-	img {
-		width: 350px;
-	}
-}
 /* //////////////////// */
 /* Bri's CSS Space  */
 /* //////////////////// */
@@ -333,27 +308,42 @@ ul {
 .ui-menu .ui-menu-item a.ui-state-active {
 	margin: -1px;
 }
+/* if device width is less than or equal to 890 */ 
+@media only screen and (max-width: 1024px) {
+	.prevSearch {
+		font-size: 14pt;
+		padding: 2px;
+	}
+}
+/* if device width is less than or equal to 650 */
+@media only screen and (max-width: 650px) {
 
-@media only screen and (max-width: 890px) {
-
-	img {
+	.recipeImg {
 		width: 200px;
 	}
-
-	.prevSearch {
-		font-size: 12pt;
+	#checkmarks {
+		height:auto;
+		margin: 10px 0px;
+		padding: 0px 0px 0px 0px;
 	}
-
-    img {
-        width: 200px;
-    }
-    .prevSearch {
-      font-size:12pt;
-    }
-}
-@media only screen and (max-width: 890px) {
 	a {
 		font-size: 8pt;
+	}
+	.prevSearch {
+		font-size: 10pt;
+		padding: 1px;
+	}
+   
+}
+@media only screen and (min-width:530px) and (max-width:550px) {
+	.recipeImg {
+		width: 225px
+	}
+}
+/* if device width is greater than or equal to 750 */ 
+@media only screen and (min-width: 750px) {
+	.recipeImg {
+		width: 325px;
 	}
 }
 
