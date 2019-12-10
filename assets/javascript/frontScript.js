@@ -88,3 +88,11 @@ function getJoke() {
 		$("#joke").append(jokeBox);
 	});
 }
+
+// Jquery UI 
+$("#joke").click(function() {
+    $( "#joke" ).effect( "shake" );
+    $("#joke").empty();
+    getJoke ();
+  });
+
