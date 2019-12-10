@@ -2,6 +2,10 @@
 /* Cindy's CSS Space */
 /* //////////////////// */
 
+#clearButton{
+    border: none; 
+}
+
 body {
 	font-family: "Raleway", sans-serif;
 	background-image: url("../img/dessertbg.jpg");
@@ -191,6 +195,7 @@ button {
 	input[type="text"] {
 		font-size: 12pt;
 	}
+
 	input[type="text"] {
 		font-size: 10pt;
 		margin-bottom: 3px;
@@ -210,10 +215,6 @@ button {
 	.extra-padding {
 		padding: 0;
 	}
-
-	/* .jumbotron {
-        padding-bottom: 5%;
-    } */
 }
 
 
@@ -224,9 +225,16 @@ button {
 
 	.prevSearch {
     font-size: 12pt; 
-    
+	}
+
 	a {
 		font-size: 8pt;
+	}
+
+	#checkmarks {
+		height:auto;
+		margin: 10px 0px;
+		padding: 0px 0px 0px 0px;
 	}
 }
 
@@ -267,7 +275,7 @@ a {
 /* //////////////////// */
 
 #clearButton {
-	position: absolute;
+	/* position: absolute; */
 	top: 10px;
 	right: 5px;
 	border: none;
@@ -341,7 +349,8 @@ ul {
     .prevSearch {
       font-size:12pt;
     }
-
+}
+@media only screen and (max-width: 890px) {
 	a {
 		font-size: 8pt;
 	}
@@ -358,4 +367,5 @@ ul {
 	right: 5px;
 	border: none;
 }
+
 

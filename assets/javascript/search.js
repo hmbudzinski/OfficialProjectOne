@@ -174,16 +174,17 @@ function sideButtons() {
 		searchRecipe(searchTerm);
 	});
 
-	var searchedTitle = $("<h5>");
-	searchedTitle.text("Your Delicious Searches");
-	$("#stored").prepend(searchedTitle);
-
 	var clearButton = $("<button>");
 	clearButton.attr("id", "clearButton");
 	clearButton.append($('<i class="fa fa-times"></i>'));
 	$("#stored").append(clearButton);
 
-	$("#clearButton").on("click", function (event) {
+	var searchedTitle = $("<h5>");
+	searchedTitle.text("Your Delicious Searches");
+	searchedTitle.attr("id", "sTitle")
+	$("#stored").prepend(searchedTitle);
+
+	$("#clearButton").on("click", function(event) {
 		console.log("click");
 		clearSearch();
 	});
