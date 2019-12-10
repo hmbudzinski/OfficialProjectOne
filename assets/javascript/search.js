@@ -197,7 +197,7 @@ function sideButtons() {
 
 	var clearButton = $("<button>");
 	clearButton.attr("id", "clearButton");
-	clearButton.append($('<i class="fas fa-times"></i>'));
+	clearButton.append($('<i class="fa fa-times"></i>'));
 	$("#stored").append(clearButton);
 
 	$("#clearButton").on("click", function(event) {
