@@ -195,7 +195,7 @@ function sideButtons() {
 	clearButton.attr("id", "clearButton");
 	clearButton.append($('<i class="fa fa-times"></i>'));
 	$("#stored").append(clearButton);
-
+	
 	var searchedTitle = $("<h5>");
 	searchedTitle.text("Your Delicious Searches");
 	searchedTitle.attr("id", "sTitle")
