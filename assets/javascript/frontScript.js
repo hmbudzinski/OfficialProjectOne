@@ -1,10 +1,3 @@
-// first we need to collect the user's search term as a dynamic variable
-
-// then we need to input that search variable
-
-// then we need to get the info from the ajax response as variables
-
-// then manipulate the DOM to display the recipe and the corresponding gif
 
 var checkboxVal = [];
 
@@ -22,6 +15,7 @@ $("#search-button").on("click touch", function (event) {
         console.log("checkboxVal array ", checkboxVal);
     });
 
+    // animate stuff to make the page look good when you click
     $("#searchbox").animate({ height: "auto", margin: "0 0 20px 0", padding: "20px 0 10px 0" });
     $("#shrink-text").animate({ fontSize: "22pt" });
     $(".row").removeClass("extra-padding");
@@ -29,34 +23,15 @@ $("#search-button").on("click touch", function (event) {
     $("#search-button").animate({ fontSize: "12pt" });
     $("#search-button").removeClass("searchCenter");
 
+    // fade all the new divs in all pretty-like
     $("#recipe-box").fadeIn(1000, "swing");
     $("#recipe-info").fadeIn(1000, "swing");
     $("#stored").fadeIn(1000, "swing");
     $("#joke").fadeIn(1000, "swing");
     $("#edamam-div").fadeIn(1000, "swing");
     $("#edamam-badge").fadeIn(1000, "swing");
-    // var newContainer = $("<div class='container'>");
 
-    // newContainer.attr("id", "results");
-    // newContainer.attr("class", "container center");
-    // newContainer.insertAfter(searchbox);
-    // var newRow = $("<div class='row'>");
-    // newContainer.append(newRow);
-
-    // divIds = ["recipe-info", "stored", "joke"]
-    // for (var i = 0; i < divIds.length; i++) {
-    //     // var textArr = ["<span><h4>Recipe Title</h4></span><span>[img goes here]</span><span><h4>Recipe Title</h4></span><span>[img goes here]</span><span><h4>Recipe Title</h4></span><span>[img goes here]</span>", "<span><h4>Local Storage</h4></span><span></span>", "<span><h5>Don't Forget to Laugh!</h5></span>"]
-    //     // var textArr = [];
-    //     var newCol = $("<div class='trans-bg'>");
-    //     newCol.attr("id", divIds[i])
-    //     newRow.append(newCol);
-    //     // newCol.html(textArr[i]);
-    // }
-
-    // $("#recipe-info").addClass("eight columns");
-    // $("#stored").addClass("four columns")
-    // $("#joke").addClass("four columns")
-
+    // get Bri's joke
     getJoke();
 });
 
@@ -66,12 +41,12 @@ $("#searchbox").keyup(function (event) {
     }
 });
 
-function getJoke() {
-    // $("#joke").removeClass("six columns")
-    // $("#joke").addClass("four columns offset-by-four top-margin20")
 
-    var url =
-        "https://api.spoonacular.com/food/jokes/random?&apiKey=349d5f926732476ab8ac52e9787cedc9";
+// joke function!
+function getJoke() {
+
+
+    var url = "https://api.spoonacular.com/food/jokes/random?&apiKey=349d5f926732476ab8ac52e9787cedc9";
     $.ajax({
         url: url,
         method: "GET"
