@@ -4,7 +4,7 @@
 
 var urlStart = "https://api.edamam.com/search?q=";
 var additionalKeys =
-	"%20dessert&to=3&nutrients[SUGAR]=20%2B&enum[crustacean-free]&enum[fish-free]&enum[pork-free]&enum[red-meat-free]&enum[shellfish-free]";
+	"%20dessert&to=20&nutrients[SUGAR]=20%2B&enum[crustacean-free]&enum[fish-free]&enum[pork-free]&enum[red-meat-free]&enum[shellfish-free]";
 var idAndKey = "&app_id=2790841b&app_key=f439766755de77a40d2e25c9776f23a1";
 var vegan = "&health=vegan";
 var peanutFree = "&health=peanut-free";
@@ -14,6 +14,8 @@ var userSearched;
 var list = [];
 var ischecked = false;
 var value;
+
+
 
 // checking the checkbox's checked or unchecked status
 $("input:checkbox").change(function () {
@@ -90,18 +92,21 @@ function searchRecipe(searchTerm) {
 	$.ajax({
 		url: finalUrl,
 		method: "GET"
-	}).then(function (response) {
-		for (var i = 0; i < response.hits.length; i++) {
+	}).then(function (response) {		
+		for (var i = 0; i < 3; i++) {
+			var randomIndex = response.hits[Math.floor(Math.random() * 20)]
+			console.log(response)
+			console.log("randomIndex test ", i, randomIndex)
 			// go through the json object and grab three of the recipes, images and titles
 			// title
 			var recipeTitle = $("<h5>");
-			var title = response.hits[i].recipe.label;
+			var title = randomIndex.recipe.label;
 			recipeTitle.text(title);
 			$("#recipe-info").append(recipeTitle);
 
 			// image
 			var img = $("<img>");
-			var imgSrc = response.hits[i].recipe.image;
+			var imgSrc = randomIndex.recipe.image;
 			img.attr("src", imgSrc);
 			img.addClass("recipeImg")
 			$("#recipe-info").append(img);
@@ -111,7 +116,7 @@ function searchRecipe(searchTerm) {
 			urlButton.addClass("urlButton");
 			var buttonLink = $("<a>");
 			buttonLink.appendTo(urlButton);
-			var shareUrl = response.hits[i].recipe.shareAs;
+			var shareUrl = randomIndex.recipe.shareAs;
 			buttonLink.attr("href", shareUrl);
 			buttonLink.attr("target", "_blank");
 			buttonLink.text("Click here for recipe");
